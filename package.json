@@ -1,0 +1,22 @@
+{
+  "name": "ton-x-hello-session",
+  "version": "1.0.0",
+  "description": "Create application session with TON-x lib",
+  "author": "Serge P <spmathf@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack && cp ./src/index.html ./out"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.4.2",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.1",
+    "ton-x": "^2.0.0"
+  }
+}
