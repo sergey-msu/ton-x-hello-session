@@ -8,20 +8,18 @@ export async function showQRCode(text: string, qrCanvas: HTMLElement | any): Pro
     });
 }
 
-export async function showConnectResult(session: TonhubSessionAwaited, resDiv: HTMLElement | any): Promise<TonhubWalletConfig | null> {
-  resDiv.innerHTML = "";
+export async function showConnectResult(session: TonhubSessionAwaited, fromDiv: HTMLElement | any, resDiv: HTMLElement | any): Promise<TonhubWalletConfig | null> {
+  fromDiv.innerHTML = "";
+  resDiv.style.display = "none";
 
   if (session.state != "ready") {
-    resDiv.innerHTML = session.state;
+    fromDiv.innerHTML = session.state;
     return null;
   } else {
     session = (session as TonhubSessionStateReady);
-    resDiv.innerHTML = session.wallet.address;
+    fromDiv.innerHTML = session.wallet.address;
+    resDiv.style.display = "initial";
+    
     return session.wallet;   
   }
 }
-
-export async function withrawCoins(sessionId: string, amount: number | any): Promise<void> {
-  console.log(amount.toString() + " nanotons sended...");
-}
-

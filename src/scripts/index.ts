@@ -1,19 +1,21 @@
 import { TonhubCreatedSession, TonhubSessionAwaited, TonhubWalletConfig } from "ton-x";
-import { getSession, waitSession } from './tonhub';
-import { showQRCode, showConnectResult, withrawCoins } from "./utils";
+import { getSession, waitSession, sendCoins } from './tonhub';
+import { showQRCode, showConnectResult } from "./utils";
 
 
-const sessionBtn: HTMLElement | any = document.getElementById("ts-cap-btn")
+const connectBtn: HTMLElement | any = document.getElementById("ts-cap-btn")
 const payBtn: HTMLElement | any = document.getElementById("ts-pay-btn")
 const qrCancas: HTMLElement | any = document.getElementById("ts-qr-canvas");
 const resDiv: HTMLElement | any = document.getElementById("ts-res-div");
+const fromDiv: HTMLElement | any = document.getElementById("ts-from-div");
+const recipientInput: HTMLElement | any = document.getElementById("ts-to-input");
 
 let sessionId: string = "";
 let sessionSeed: string = "";
 let walletConfig: string = "";
 let appPublicKey: string = "";
 
-sessionBtn.addEventListener("click", async (e:any) => {
+connectBtn.addEventListener("click", async (e:any) => {
   e.preventDefault();
 
   const session: TonhubCreatedSession = await getSession();
@@ -21,8 +23,8 @@ sessionBtn.addEventListener("click", async (e:any) => {
   sessionSeed = session.seed;
   await showQRCode(session.link, qrCancas);
 
-  const result: TonhubSessionAwaited = await waitSession(session.id, 5);
-  const wallet: TonhubWalletConfig | null = await showConnectResult(result, resDiv);
+  const result: TonhubSessionAwaited = await waitSession(session.id);
+  const wallet: TonhubWalletConfig | null = await showConnectResult(result, fromDiv, resDiv);
   if (wallet) {
     walletConfig = wallet.walletConfig;
     appPublicKey = wallet.appPublicKey;
@@ -32,5 +34,5 @@ sessionBtn.addEventListener("click", async (e:any) => {
 payBtn.addEventListener("click", async (e:any) => {
   e.preventDefault();
 
-  await withrawCoins(sessionId, 1000000000);
+  await sendCoins(recipientInput.value, 1000000000, "Here's your money", sessionSeed, appPublicKey);
 });

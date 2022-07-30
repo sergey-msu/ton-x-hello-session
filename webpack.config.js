@@ -20,7 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'out'),
   },
   optimization: {
-    minimize: true
+    minimize: false
   },
   mode: 'production',
   performance: {
