@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tonhub Connector</title>
+  <link rel="stylesheet" type="text/css" href="styles/general.css"  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div clas="col-lg-6 mx-auto">
+    <div class="g-header">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button id="ts-cap-btn" type="button" class="btn btn-primary btn-lg px-4 gap-3">Connect Wallet</button>
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <canvas id="ts-qr-canvas"></canvas>
+    </div>
+    <div id="ts-res-div" class="content-centered" style="display: none;">
+      <div id="ts-from-div"></div>
+      <div class="g-header d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <input id="ts-to-input" placeholder="recipient address" class="addr-input"/>
+        <button id="ts-pay-btn" type="button" class="btn btn-success btn-lg px-4 gap-3">Pay 1 TON</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="bundle.js"></script>
+
+</body>
+</html>

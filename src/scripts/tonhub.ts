@@ -26,6 +26,7 @@ export async function sendCoins(to: string, amount: number, message: string, ses
       value: amount.toString(),
       timeout: timeoutMin * 60 * 1000,
       text: message,
+    //   payload: "te6cckEBAQEAUgAAn1/MPRQAAAAAAAADCYAKPvFPCYEV50Xs1IxFEXymxw/6eFx+moz4Nq7/qBZlv/AART9XH37phxxDoNGmcKc7t9AS4iR76HPj2Oj0dgSY82wI8rcSpA=="
     };
     
     const response: TonhubTransactionResponse = await connector.requestTransaction(request);
