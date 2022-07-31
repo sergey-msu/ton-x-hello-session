@@ -26,7 +26,7 @@ connectBtn.addEventListener("click", async (e:any) => {
   if (isMobile) {
     await showQRButton(session.link, linkDiv);
   } else {
-    await showQRButton(session.link, linkDiv);
+    await showQRCode(session.link, linkDiv);
   }
 
   const result: TonhubSessionAwaited = await waitSession(session.id);
