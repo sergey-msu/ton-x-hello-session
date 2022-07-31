@@ -66370,8 +66370,8 @@ function showQRCode(link, resDiv) {
 function showQRButton(link, resDiv) {
     return utils_awaiter(this, void 0, void 0, function* () {
         const qrButton = document.createElement("button");
+        qrButton.innerHTML = "Link";
         qrButton.setAttribute("class", "btn btn-info btn-lg px-4 gap-3");
-        qrButton.setAttribute("value", "Link");
         qrButton.setAttribute("onclick", link);
         resDiv.appendChild(qrButton);
     });
@@ -66425,7 +66425,7 @@ connectBtn.addEventListener("click", (e) => scripts_awaiter(void 0, void 0, void
         yield showQRButton(session.link, linkDiv);
     }
     else {
-        yield showQRCode(session.link, linkDiv);
+        yield showQRButton(session.link, linkDiv);
     }
     const result = yield waitSession(session.id);
     const wallet = yield showConnectResult(result, fromDiv, scripts_resDiv);

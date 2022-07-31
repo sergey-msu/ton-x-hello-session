@@ -20,8 +20,8 @@ export async function showQRCode(link: string, resDiv: HTMLElement | any): Promi
 
 export async function showQRButton(link: string, resDiv: HTMLElement | any): Promise<void> {
   const qrButton: HTMLElement = document.createElement("button");
+  qrButton.innerHTML = "Link"
   qrButton.setAttribute("class", "btn btn-info btn-lg px-4 gap-3");
-  qrButton.setAttribute("value", "Link");
   qrButton.setAttribute("onclick", link);
   resDiv.appendChild(qrButton);
 }
