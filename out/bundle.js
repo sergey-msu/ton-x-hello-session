@@ -66425,7 +66425,7 @@ connectBtn.addEventListener("click", (e) => scripts_awaiter(void 0, void 0, void
         yield showQRButton(session.link, linkDiv);
     }
     else {
-        yield showQRButton(session.link, linkDiv);
+        yield showQRCode(session.link, linkDiv);
     }
     const result = yield waitSession(session.id);
     const wallet = yield showConnectResult(result, fromDiv, scripts_resDiv);
