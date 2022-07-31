@@ -66359,6 +66359,7 @@ function mobileAndTabletCheck() {
 ;
 function showQRCode(link, resDiv) {
     return utils_awaiter(this, void 0, void 0, function* () {
+        resDiv.innerHTML = "";
         const qrCanvas = document.createElement("canvas");
         resDiv.appendChild(qrCanvas);
         browser["toCanvas"](qrCanvas, link, function (error) {
@@ -66369,6 +66370,7 @@ function showQRCode(link, resDiv) {
 }
 function showQRButton(link, resDiv) {
     return utils_awaiter(this, void 0, void 0, function* () {
+        resDiv.innerHTML = "";
         const qrButton = document.createElement("button");
         qrButton.innerHTML = "Link";
         qrButton.setAttribute("class", "btn btn-info btn-lg px-4 gap-3");

@@ -11,6 +11,7 @@ export function mobileAndTabletCheck(): boolean {
 };
 
 export async function showQRCode(link: string, resDiv: HTMLElement | any): Promise<void> {
+  resDiv.innerHTML = "";
   const qrCanvas: HTMLElement = document.createElement("canvas");
   resDiv.appendChild(qrCanvas);
   QRCode.toCanvas(qrCanvas, link, function (error:any) {
@@ -19,6 +20,7 @@ export async function showQRCode(link: string, resDiv: HTMLElement | any): Promi
 }
 
 export async function showQRButton(link: string, resDiv: HTMLElement | any): Promise<void> {
+  resDiv.innerHTML = "";
   const qrButton: HTMLElement = document.createElement("button");
   qrButton.innerHTML = "Link"
   qrButton.setAttribute("class", "btn btn-info btn-lg px-4 gap-3");
