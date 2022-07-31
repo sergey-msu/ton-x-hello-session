@@ -66372,7 +66372,10 @@ function showQRButton(link, resDiv) {
         const qrButton = document.createElement("button");
         qrButton.innerHTML = "Link";
         qrButton.setAttribute("class", "btn btn-info btn-lg px-4 gap-3");
-        qrButton.setAttribute("onclick", link);
+        qrButton.addEventListener("click", (e) => utils_awaiter(this, void 0, void 0, function* () {
+            e.preventDefault();
+            window.open(link);
+        }));
         resDiv.appendChild(qrButton);
     });
 }

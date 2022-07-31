@@ -22,7 +22,11 @@ export async function showQRButton(link: string, resDiv: HTMLElement | any): Pro
   const qrButton: HTMLElement = document.createElement("button");
   qrButton.innerHTML = "Link"
   qrButton.setAttribute("class", "btn btn-info btn-lg px-4 gap-3");
-  qrButton.setAttribute("onclick", link);
+  qrButton.addEventListener("click", async (e:any) => {
+    e.preventDefault();
+    window.open(link);
+  });
+
   resDiv.appendChild(qrButton);
 }
 
